@@ -1,16 +1,30 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import Input from "./components/Input,";
 
+const schema = yup.object({});
+
 function App() {
+  const { handleSubmit, register } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const formSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
-      <form>
+      <form onSubmit={handleSubmit(formSubmit)}>
         <Input
           type="text"
           id="username"
           label="Username"
           placeholder="Enter Username"
+          register={{ ...register("username") }}
         />
 
         <Input
@@ -18,6 +32,7 @@ function App() {
           id="phonenumber"
           label="Phone Number"
           placeholder="Enter Phone Number"
+          register={{ ...register("phonenumber") }}
         />
 
         <Input
@@ -25,6 +40,7 @@ function App() {
           id="email"
           label="Email"
           placeholder="Enter Email"
+          register={{ ...register("email") }}
         />
 
         <Input
@@ -32,6 +48,7 @@ function App() {
           id="password"
           label="Password"
           placeholder="Enter Password"
+          register={{ ...register("password") }}
         />
 
         <Input
@@ -39,6 +56,7 @@ function App() {
           id="confirmpassword"
           label="Confirm Password"
           placeholder="Enter Confirm Password"
+          register={{ ...register("confirmpassword") }}
         />
         <button>Sign Up</button>
       </form>
