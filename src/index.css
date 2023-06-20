@@ -23,3 +23,9 @@ body {
   flex-direction: column;
   gap: 0.5em;
 }
+input {
+  padding: 0.5rem;
+  border: 1px solid gray;
+  font-size: 1rem;
+  border-radius: 3px;
+}
