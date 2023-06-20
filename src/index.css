@@ -61,3 +61,8 @@ button {
 button:hover {
   background-color: rgb(243, 117, 95);
 }
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+}
